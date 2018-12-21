@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Bigfoot Smallfoot</string>
+    <string name="title_activity_location">Location</string>
+    <string name="title_activity_get_location">GetLocation</string>
+</resources>
