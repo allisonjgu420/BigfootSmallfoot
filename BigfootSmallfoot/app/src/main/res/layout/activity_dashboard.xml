@@ -10,33 +10,28 @@
     <TextView
         android:id="@+id/dashboardTitle"
         android:layout_width="177dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginBottom="113dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="56dp"
         android:text="DASHBOARD"
-        app:layout_constraintBottom_toTopOf="@+id/editGoalsButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.719"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/vehicleButton"
+        app:layout_constraintTop_toBottomOf="@+id/vehicleButton" />
 
     <Button
         android:id="@+id/vehicleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="286dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="2dp"
         android:text="Vehicle Button"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dashboardTitle" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/logoutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="15dp"
         android:text="Log Out"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,11 +41,35 @@
         android:id="@+id/editGoalsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginBottom="214dp"
+        android:layout_marginBottom="4dp"
+        android:onClick="onEditGoalsClick"
         android:text="Edit Goals"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/vehicleButton"
-        app:layout_constraintTop_toBottomOf="@+id/dashboardTitle" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newGoalButton" />
+
+    <TextView
+        android:id="@+id/goal1Text"
+        android:layout_width="89dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="340dp"
+        android:layout_marginBottom="22dp"
+        android:text="No New Goals"
+        app:layout_constraintBottom_toTopOf="@+id/newGoalButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/newGoalButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="21dp"
+        android:text="New Goal"
+        app:layout_constraintBottom_toTopOf="@+id/editGoalsButton"
+        app:layout_constraintEnd_toEndOf="@+id/editGoalsButton"
+        app:layout_constraintTop_toBottomOf="@+id/goal1Text"
+        tools:onClick="onNewGoalClick" />
 </android.support.constraint.ConstraintLayout>
