@@ -31,7 +31,7 @@ public class SetGoals extends AppCompatActivity {
     }
 
 
-    public void onNewGoalClick(View v){
+   /* public void onNewGoalClick(View v){
 
         // Get a reference to our posts
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -68,6 +68,7 @@ public class SetGoals extends AppCompatActivity {
         });
 
     }
+    */
 
 
 
