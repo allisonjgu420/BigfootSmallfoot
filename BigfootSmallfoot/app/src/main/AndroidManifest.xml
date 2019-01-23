@@ -18,7 +18,19 @@
         </activity>
         <activity android:name=".Dashboard" />
         <activity android:name=".VehicleActivity" />
-        <activity android:name=".SetGoals"></activity>
+        <activity android:name=".SetGoals" />
+        <activity
+            android:name=".TransportationInput"
+            android:label="@string/title_activity_transportation_input"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".rv_item"
+            android:label="@string/title_activity_rv_item"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".UserInput"
+            android:label="@string/title_activity_user_input"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
