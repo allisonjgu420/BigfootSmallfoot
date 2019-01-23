@@ -37,6 +37,14 @@ public class Dashboard extends AppCompatActivity {
             }
         });
 
+        Button locationButton = (Button) findViewById(R.id.locationButton);
+        locationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Dashboard.this, LocationFinder.class));
+            }
+        });
+
 
     }
 }
