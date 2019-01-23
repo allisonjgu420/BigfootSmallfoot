@@ -158,7 +158,6 @@ public class Dashboard extends AppCompatActivity {
                     goal3CheckBox.setText(messages.get(count));
                     checkbox = 0;
                 }
-
             }
 
 
