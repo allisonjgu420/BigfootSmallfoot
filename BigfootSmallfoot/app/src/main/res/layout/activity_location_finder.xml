@@ -33,6 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/latitude"
         android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:layout_toRightOf="@+id/latitude"
         android:textSize="16sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/longitude_textview"
