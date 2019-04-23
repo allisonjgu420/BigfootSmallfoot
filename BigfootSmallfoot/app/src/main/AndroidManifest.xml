@@ -19,7 +19,6 @@
         <activity android:name=".Dashboard" />
         <activity android:name=".VehicleActivity" />
         <activity android:name=".SetGoals" />
-
         <activity
             android:name=".TransportationInput"
             android:label="@string/title_activity_transportation_input"
@@ -31,7 +30,11 @@
         <activity
             android:name=".UserInput"
             android:label="@string/title_activity_user_input"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".DrawView" />
+        <activity android:name=".Graph" />
+        <activity android:name=".Graphs" />
+        <activity android:name=".CreateAccount"></activity>
     </application>
 
 </manifest>

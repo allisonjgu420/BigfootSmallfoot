@@ -21,14 +21,22 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.support.v4.app.NotificationCompat;
+
+
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Dashboard extends AppCompatActivity {
     ImageView drawingImageView;
     //boolean editGoalClicked;
     int count = 0;
     int checkbox = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,18 +53,15 @@ public class Dashboard extends AppCompatActivity {
         vehicleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent (Dashboard.this, VehicleActivity.class));
+                startActivity(new Intent(Dashboard.this, VehicleActivity.class));
             }
         });
 
     }
 
-    //public void onEditGoalsClick(View v) {
-      //  startActivity(new Intent(Dashboard.this, SetGoals.class));
 
-//    }
 
-    public void onNewGoalClick(View v){
+    public void onNewGoalClick(View v) {
 
         // Get a reference to our posts
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -76,7 +81,12 @@ public class Dashboard extends AppCompatActivity {
                 System.out.println(dataSnapshot);
 
                 // Specifies that array list is storing strings and not some other type, e.g. integers, doubles
-                GenericTypeIndicator<ArrayList<String>> t = new GenericTypeIndicator<ArrayList<String>>() {};
+                GenericTypeIndicator<ArrayList<String>> t = new GenericTypeIndicator<ArrayList<String>>() {
+                };
+
+                HashMap<String, Integer> map = new HashMap<String, Integer>();
+                map.put("christine", 23);
+                int age = map.get("christine");
                 ArrayList<String> messages = dataSnapshot.getValue(t);
 
                 //Prints out all the goals in the database
@@ -87,7 +97,7 @@ public class Dashboard extends AppCompatActivity {
                 System.out.println(messages.get(1));
 
 
-                TextView goal1Text = (TextView)findViewById(R.id.goal1Text);
+                TextView goal1Text = (TextView) findViewById(R.id.goal1Text);
                 goal1Text.setVisibility(View.INVISIBLE);
 
                 final CheckBox goal1CheckBox = (CheckBox) findViewById(R.id.goal1CheckBox);
@@ -158,8 +168,9 @@ public class Dashboard extends AppCompatActivity {
                     goal3CheckBox.setText(messages.get(count));
                     checkbox = 0;
                 }
-            }
 
+
+            }
 
 
             @Override
@@ -168,5 +179,9 @@ public class Dashboard extends AppCompatActivity {
             }
 
         });
+    }
+
+    public void onGraphsClick (View v) {
+        startActivity(new Intent(Dashboard.this, Graphs.class));
     }
 }

@@ -10,23 +10,28 @@
     <TextView
         android:id="@+id/dashboardTitle"
         android:layout_width="177dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="102dp"
+        android:layout_marginBottom="240dp"
         android:text="DASHBOARD"
         android:textColor="#58D68D"
         android:textSize="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/newGoalButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vehicleButton" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/vehicleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="139dp"
-        android:text="Vehicle Button"
+        android:layout_marginStart="176dp"
+        android:layout_marginBottom="54dp"
+        android:text="Vehicle"
+        app:layout_constraintBottom_toTopOf="@+id/dashboardTitle"
         app:layout_constraintStart_toStartOf="@+id/dashboardTitle"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/logoutButton"
@@ -51,11 +56,12 @@
         android:id="@+id/newGoalButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
+        android:layout_marginBottom="70dp"
         android:onClick="onNewGoalClick"
         android:text="New Goal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/goal3CheckBox"
-        app:layout_constraintTop_toBottomOf="@+id/goal3CheckBox" />
+        app:layout_constraintTop_toBottomOf="@+id/dashboardTitle" />
 
     <CheckBox
         android:id="@+id/goal1CheckBox"
@@ -72,7 +78,7 @@
         android:id="@+id/goal2CheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:text="CheckBox"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="@+id/goal1Text"
@@ -88,4 +94,19 @@
         app:layout_constraintStart_toStartOf="@+id/goal2CheckBox"
         app:layout_constraintTop_toBottomOf="@+id/goal2CheckBox" />
 
+    <Button
+        android:id="@+id/graphButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onGraphsClick"
+        android:text="Graphs"
+        app:layout_constraintBottom_toTopOf="@+id/dashboardTitle"
+        app:layout_constraintStart_toEndOf="@+id/dashboardTitle" /><![CDATA[
+
+
+
+    //tools:onClick="sendNotification" />
+
+
+]]>
 </android.support.constraint.ConstraintLayout>

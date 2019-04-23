@@ -22,9 +22,89 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:text="Back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/vehicle1Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:ems="10"
+        android:hint="Vehicle 1"
+        android:inputType="textPersonName"
+        app:layout_constraintBaseline_toBaselineOf="@+id/mpg1Text"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/vehicle2Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="200dp"
+        android:ems="10"
+        android:hint="Vehicle 2"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/vehicle3Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:ems="10"
+        android:hint="Vehicle 3"
+        android:inputType="textPersonName"
+        app:layout_constraintBaseline_toBaselineOf="@+id/mpg3Text"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginBottom="124dp"
+        android:onClick="onSaveClick"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/mpg1Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginBottom="14dp"
+        android:ems="10"
+        android:hint="MPG"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/mpg2Text"
+        app:layout_constraintStart_toEndOf="@+id/vehicle1Text" />
+
+    <EditText
+        android:id="@+id/mpg2Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:ems="10"
+        android:hint="MPG"
+        android:inputType="numberDecimal"
+        app:layout_constraintBaseline_toBaselineOf="@+id/vehicle2Text"
+        app:layout_constraintStart_toEndOf="@+id/vehicle2Text" />
+
+    <EditText
+        android:id="@+id/mpg3Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:hint="MPG"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toEndOf="@+id/vehicle3Text"
+        app:layout_constraintTop_toBottomOf="@+id/vehicle2Text" />
+
 </android.support.constraint.ConstraintLayout>
