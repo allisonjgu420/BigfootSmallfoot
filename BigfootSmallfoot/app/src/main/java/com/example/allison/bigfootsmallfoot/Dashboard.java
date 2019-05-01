@@ -9,6 +9,7 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -38,6 +39,7 @@ public class Dashboard extends AppCompatActivity implements GoogleApiClient.Conn
     private long FASTEST_INTERVAL = 2000; /* 2 sec */
     private boolean getLocation;
     private ArrayList<LatLng> coordinates = new ArrayList<LatLng>();
+    private ArrayList<Double> emissions = new ArrayList<>(Double);
     private int mpg = 20;
 
     @Override
@@ -92,28 +94,41 @@ public class Dashboard extends AppCompatActivity implements GoogleApiClient.Conn
                 else {
                     stopLocationUpdates();
                     double dist = findDistance();
-                    double emissions = calculateEmission();
+                    double emission = calculateEmission();
                     Toast.makeText(getApplicationContext(), "distance (mi) " + dist, Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getApplicationContext(), "CO2 emissions (lbs) " + emissions, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "CO2 emissions (lbs) " + emission, Toast.LENGTH_SHORT).show();
+
+                    emissions.add(emission);
 
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference myRef = database.getReference().child("message");
-                    myRef.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            //GenericTypeIndicator<ArrayList<String>> t = new GenericTypeIndicator
-                            Object message = dataSnapshot.getValue();
-                            Toast.makeText(getApplicationContext(), "value " + message, Toast.LENGTH_SHORT).show();
-                        }
+                    DatabaseReference myRef = database.getReference("users/user1/emissions");
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                        }
-                    });
-                    myRef.setValue("Hello, World!");
+                    myRef.setValue(emissions, new DatabaseReference.CompletionListener() {
+                                @Override
+                                public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                                    Toast.makeText(getApplicationContext(), "in oncomplete", Toast.LENGTH_SHORT).show();
+                                    if (databaseError != null) {
+                                        Toast.makeText(getApplicationContext(), "data could not be saved " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+//                    myRef.addValueEventListener(new ValueEventListener() {
+//                        @Override
+//                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                            //GenericTypeIndicator<ArrayList<String>> t = new GenericTypeIndicator
+//                            Object emissions = dataSnapshot.getValue();
+//                            Toast.makeText(getApplicationContext(), "value " + emissions, Toast.LENGTH_SHORT).show();
+//                        }
+//
+//                        @Override
+//                        public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//                        }
+//                    });
 
-                    coordinates.clear();
+
+                            coordinates.clear();
                     //convert to miles per gallon
                     // save to firebase
                 }
