@@ -39,7 +39,7 @@ public class Dashboard extends AppCompatActivity implements GoogleApiClient.Conn
     private long FASTEST_INTERVAL = 2000; /* 2 sec */
     private boolean getLocation;
     private ArrayList<LatLng> coordinates = new ArrayList<LatLng>();
-    private ArrayList<Double> emissions = new ArrayList<>(Double);
+    private ArrayList<Double> emissions = new ArrayList<Double>();
     private int mpg = 20;
 
     @Override
