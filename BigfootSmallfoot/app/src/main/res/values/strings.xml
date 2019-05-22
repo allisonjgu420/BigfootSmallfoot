@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Bigfoot Smallfoot</string>
+    <string name="title_activity_transportation_input">TransportationInput</string>
+    <string name="title_activity_rv_item">rv_item</string>
+    <string name="title_activity_user_input">UserInput</string>
+
 </resources>

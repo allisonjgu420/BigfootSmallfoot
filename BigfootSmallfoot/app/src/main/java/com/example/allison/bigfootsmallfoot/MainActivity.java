@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -16,11 +19,13 @@ public class MainActivity extends AppCompatActivity {
 
         Button loginButton = (Button) findViewById(R.id.loginButton);
 
+
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, Dashboard.class));            }
 
+                startActivity(new Intent(MainActivity.this, Dashboard.class));
+            }
         });
     }
 }

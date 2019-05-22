@@ -2,19 +2,22 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".Dashboard"
     tools:layout_editor_absoluteY="81dp">
 
     <TextView
         android:id="@+id/dashboardTitle"
         android:layout_width="177dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="14dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="102dp"
+        android:layout_marginBottom="240dp"
         android:text="DASHBOARD"
-        app:layout_constraintBottom_toTopOf="@+id/logoutButton"
+        android:textColor="#58D68D"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/newGoalButton"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,13 +25,13 @@
         android:id="@+id/vehicleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
-        android:text="Vehicle Button"
-        app:layout_constraintBottom_toTopOf="@+id/editGoalsButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logoutButton" />
+        android:layout_marginStart="176dp"
+        android:layout_marginBottom="54dp"
+        android:text="Vehicle"
+        app:layout_constraintBottom_toTopOf="@+id/dashboardTitle"
+        app:layout_constraintStart_toStartOf="@+id/dashboardTitle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/logoutButton"
@@ -62,5 +65,77 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/editGoalsButton"
         app:layout_constraintTop_toBottomOf="@+id/editGoalsButton" />
+        android:layout_marginStart="4dp"
+        android:text="Log Out"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/goal1Text"
+        android:layout_width="384dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:text="No New Goals"
+        app:layout_constraintBottom_toBottomOf="@+id/goal2CheckBox"
+        app:layout_constraintStart_toStartOf="@+id/goal1CheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/goal1CheckBox" />
+
+    <Button
+        android:id="@+id/newGoalButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="70dp"
+        android:onClick="onNewGoalClick"
+        android:text="New Goal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/goal3CheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/dashboardTitle" />
+
+    <CheckBox
+        android:id="@+id/goal1CheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="45dp"
+        android:text="CheckBox"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/dashboardTitle"
+        app:layout_constraintTop_toBottomOf="@+id/dashboardTitle" />
+
+    <CheckBox
+        android:id="@+id/goal2CheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="CheckBox"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/goal1Text"
+        app:layout_constraintTop_toBottomOf="@+id/goal1CheckBox" />
+
+    <CheckBox
+        android:id="@+id/goal3CheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="CheckBox"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/goal2CheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/goal2CheckBox" />
+
+    <Button
+        android:id="@+id/graphButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onGraphsClick"
+        android:text="Graphs"
+        app:layout_constraintBottom_toTopOf="@+id/dashboardTitle"
+        app:layout_constraintStart_toEndOf="@+id/dashboardTitle" /><![CDATA[
+
+
+
+    //tools:onClick="sendNotification" />
+
+
+]]>
+>>>>>>> AllisonBranch
 </android.support.constraint.ConstraintLayout>

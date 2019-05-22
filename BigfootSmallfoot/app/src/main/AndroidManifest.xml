@@ -4,6 +4,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <uses-library android:name="com.google.android.maps" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,6 +26,23 @@
         <activity android:name=".VehicleActivity" />
         <activity android:name=".SetGoals" />
         <activity android:name=".LocationFinder"/>
-    </application>
 
+        <activity
+            android:name=".TransportationInput"
+            android:label="@string/title_activity_transportation_input"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".rv_item"
+            android:label="@string/title_activity_rv_item"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".UserInput"
+            android:label="@string/title_activity_user_input"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".DrawView" />
+        <activity android:name=".Graph" />
+        <activity android:name=".Graphs" />
+        <activity android:name=".CreateAccount"></activity>
+    </application>
 </manifest>
+

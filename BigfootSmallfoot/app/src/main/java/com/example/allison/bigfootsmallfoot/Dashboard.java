@@ -19,7 +19,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import java.util.ArrayList;
-
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.EditText;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationRequest;
@@ -30,6 +34,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.GenericTypeIndicator;
+
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.support.v4.app.NotificationCompat;
+
+import java.util.HashMap;
 
 public class Dashboard extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, com.google.android.gms.location.LocationListener {
 
@@ -41,6 +52,10 @@ public class Dashboard extends AppCompatActivity implements GoogleApiClient.Conn
     private ArrayList<LatLng> coordinates = new ArrayList<LatLng>();
     private ArrayList<Double> emissions = new ArrayList<Double>();
     private int mpg = 20;
+    ImageView drawingImageView;
+    //boolean editGoalClicked;
+    int count = 0;
+    int checkbox = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -308,5 +323,135 @@ public class Dashboard extends AppCompatActivity implements GoogleApiClient.Conn
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) ||
                 locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+                startActivity(new Intent(Dashboard.this, VehicleActivity.class));
+            }
+        });
+
+    }
+
+
+
+    public void onNewGoalClick(View v) {
+
+        // Get a reference to our posts
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference("users/test/goals");
+
+        //ref.setValue("Hello, World!");
+
+        // Attach a listener to read the data at our posts reference
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                count++;
+                //editGoalClicked = true;
+
+                // Prints all the values and goals in the database
+                System.out.println(dataSnapshot);
+
+                // Specifies that array list is storing strings and not some other type, e.g. integers, doubles
+                GenericTypeIndicator<ArrayList<String>> t = new GenericTypeIndicator<ArrayList<String>>() {
+                };
+
+                HashMap<String, Integer> map = new HashMap<String, Integer>();
+                map.put("christine", 23);
+                int age = map.get("christine");
+                ArrayList<String> messages = dataSnapshot.getValue(t);
+
+                //Prints out all the goals in the database
+                System.out.println(messages);
+
+                //Prints out one specific goal
+
+                System.out.println(messages.get(1));
+
+
+                TextView goal1Text = (TextView) findViewById(R.id.goal1Text);
+                goal1Text.setVisibility(View.INVISIBLE);
+
+                final CheckBox goal1CheckBox = (CheckBox) findViewById(R.id.goal1CheckBox);
+                final CheckBox goal2CheckBox = (CheckBox) findViewById(R.id.goal2CheckBox);
+                final CheckBox goal3CheckBox = (CheckBox) findViewById(R.id.goal3CheckBox);
+
+                //Set first checkbox
+                if (count == 1) {
+
+                    goal1CheckBox.setVisibility(View.VISIBLE);
+                    goal1CheckBox.setText(messages.get(count));
+                }
+
+                //Set second checkbox
+                if (count == 2) {
+                    goal2CheckBox.setVisibility(View.VISIBLE);
+                    goal2CheckBox.setText(messages.get(count));
+                }
+
+                //Set third checkbox
+                if (count == 3) {
+                    goal3CheckBox.setVisibility(View.VISIBLE);
+                    goal3CheckBox.setText(messages.get(count));
+                    //count = 0;
+                }
+
+                // If first checkbox is checked
+                goal1CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    //recording the click of the checkbox
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        if (isChecked) {
+                            goal1CheckBox.setText(goal2CheckBox.getText());
+                            goal2CheckBox.setText(goal3CheckBox.getText());
+                            goal3CheckBox.setVisibility(View.INVISIBLE);
+                            checkbox = 3;
+                        }
+
+
+                    }
+                });
+
+                // If second checkbox is checked
+                goal2CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    //recording the click of the checkbox
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        if (isChecked) {
+                            goal2CheckBox.setText(goal3CheckBox.getText());
+                            goal3CheckBox.setVisibility(View.INVISIBLE);
+                            checkbox = 3;
+                        }
+                    }
+                });
+
+                // If third checkbox is checked
+                goal3CheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    //recording the click of the checkbox
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        if (isChecked) {
+                            goal3CheckBox.setVisibility(View.INVISIBLE);
+                            checkbox = 3;
+                        }
+                    }
+                });
+
+                // Set third checkbox if first checkbox is checked
+                if (checkbox == 3) {
+                    goal3CheckBox.setVisibility(View.VISIBLE);
+                    goal3CheckBox.setText(messages.get(count));
+                    checkbox = 0;
+                }
+
+
+            }
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+
+        });
+    }
+
+    public void onGraphsClick (View v) {
+        startActivity(new Intent(Dashboard.this, Graphs.class));
     }
 }
