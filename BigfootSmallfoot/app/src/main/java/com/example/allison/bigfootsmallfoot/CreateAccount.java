@@ -44,4 +44,8 @@ public class CreateAccount extends AppCompatActivity {
             startActivity(new Intent(CreateAccount.this, Dashboard.class));
         }
     }
+
+    public void onBackButtonClick (View v) {
+        startActivity(new Intent(CreateAccount.this, MainActivity.class));
+    }
 }

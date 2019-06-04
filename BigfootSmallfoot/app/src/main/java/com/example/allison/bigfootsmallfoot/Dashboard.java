@@ -323,9 +323,9 @@ public class Dashboard extends AppCompatActivity implements GoogleApiClient.Conn
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) ||
                 locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-                startActivity(new Intent(Dashboard.this, VehicleActivity.class));
-            }
-        });
+//                startActivity(new Intent(Dashboard.this, VehicleActivity.class));
+//            }
+//        });
 
     }
 

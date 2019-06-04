@@ -1,5 +1,6 @@
 package com.example.allison.bigfootsmallfoot;
 
+        import android.content.Intent;
         import android.support.constraint.ConstraintLayout;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
@@ -9,6 +10,11 @@ package com.example.allison.bigfootsmallfoot;
         import android.widget.EditText;
         import android.widget.TextView;
 
+        import com.google.firebase.database.DataSnapshot;
+        import com.google.firebase.database.DatabaseError;
+        import com.google.firebase.database.DatabaseReference;
+        import com.google.firebase.database.FirebaseDatabase;
+        import com.google.firebase.database.ValueEventListener;
         import com.jjoe64.graphview.GraphView;
         import com.jjoe64.graphview.series.DataPoint;
         import com.jjoe64.graphview.series.LineGraphSeries;
@@ -24,6 +30,28 @@ public class Graphs extends AppCompatActivity {
             DataPoint prevPoint = null;
                 @Override
                 public void onClick(View v) {
+                   /* final FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference ref = database.getReference("users/user1/emissions");
+                    ref.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            @Override
+
+
+
+
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+                }*/
+
+           /* public void onGraphsClick (View v) {
+                startActivity(new Intent(Dashboard.this, Graphs.class));
+            }*/
                     EditText mEdit;
                     TextView mText;
                     mEdit = (EditText) findViewById(R.id.distanceText);

@@ -10,103 +10,100 @@
     <TextView
         android:id="@+id/dashboardTitle"
         android:layout_width="177dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="102dp"
-        android:layout_marginBottom="240dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="42dp"
         android:text="DASHBOARD"
         android:textColor="#58D68D"
         android:textSize="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/newGoalButton"
+        app:layout_constraintBottom_toBottomOf="@+id/goal1CheckBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/logoutButton" />
 
     <Button
         android:id="@+id/vehicleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginBottom="54dp"
+        android:layout_marginStart="9dp"
         android:text="Vehicle"
-        app:layout_constraintBottom_toTopOf="@+id/dashboardTitle"
-        app:layout_constraintStart_toStartOf="@+id/dashboardTitle"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/graphButton"
+        app:layout_constraintEnd_toStartOf="@+id/graphButton"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/logoutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="95dp"
+        android:layout_marginTop="5dp"
         android:text="Log Out"
-        app:layout_constraintBottom_toTopOf="@+id/vehicleButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dashboardTitle" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/editGoalsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginBottom="18dp"
+        android:layout_marginEnd="1dp"
         android:text="Edit Goals"
-        app:layout_constraintBottom_toTopOf="@+id/locationButton"
-        app:layout_constraintStart_toStartOf="@+id/vehicleButton"
-        app:layout_constraintTop_toBottomOf="@+id/vehicleButton" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/graphButton"
+        app:layout_constraintEnd_toStartOf="@+id/locationButton"
+        app:layout_constraintStart_toEndOf="@+id/graphButton" />
 
     <Button
         android:id="@+id/locationButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="3dp"
-        android:layout_marginBottom="166dp"
         android:text="Location"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/editGoalsButton"
-        app:layout_constraintTop_toBottomOf="@+id/editGoalsButton" />
-        android:layout_marginStart="4dp"
-        android:text="Log Out"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/editGoalsButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editGoalsButton" />
+    android:layout_marginStart="4dp"
+    android:text="Log Out"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/goal1Text"
-        android:layout_width="384dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="1dp"
+        android:layout_width="100dp"
+        android:layout_height="49dp"
         android:text="No New Goals"
-        app:layout_constraintBottom_toBottomOf="@+id/goal2CheckBox"
-        app:layout_constraintStart_toStartOf="@+id/goal1CheckBox"
-        app:layout_constraintTop_toBottomOf="@+id/goal1CheckBox" />
+        app:layout_constraintBottom_toTopOf="@+id/goal2CheckBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/goal2CheckBox" />
 
     <Button
         android:id="@+id/newGoalButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="70dp"
+        android:layout_width="168dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="131dp"
+        android:layout_marginBottom="132dp"
         android:onClick="onNewGoalClick"
         android:text="New Goal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/goal3CheckBox"
-        app:layout_constraintTop_toBottomOf="@+id/dashboardTitle" />
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/graphButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/goal1Text" />
 
     <CheckBox
         android:id="@+id/goal1CheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="149dp"
         android:text="CheckBox"
         android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="@+id/dashboardTitle"
-        app:layout_constraintTop_toBottomOf="@+id/dashboardTitle" />
+        app:layout_constraintStart_toStartOf="@+id/goal1Text"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
         android:id="@+id/goal2CheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="33dp"
         android:text="CheckBox"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="@+id/goal1Text"
@@ -116,7 +113,7 @@
         android:id="@+id/goal3CheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:text="CheckBox"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="@+id/goal2CheckBox"
@@ -126,10 +123,12 @@
         android:id="@+id/graphButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
         android:onClick="onGraphsClick"
         android:text="Graphs"
-        app:layout_constraintBottom_toTopOf="@+id/dashboardTitle"
-        app:layout_constraintStart_toEndOf="@+id/dashboardTitle" /><![CDATA[
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/editGoalsButton"
+        app:layout_constraintStart_toEndOf="@+id/vehicleButton" /><![CDATA[
 
 
 
